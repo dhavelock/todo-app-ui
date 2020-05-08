@@ -1,0 +1,6 @@
+<h2>{{ list.name }}</h2>
+<div *ngIf="items">
+  <div *ngFor="let item of items">
+    <app-item [item]="item"></app-item>
+  </div>
+</div>

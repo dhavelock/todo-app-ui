@@ -1,0 +1,9 @@
+<form [formGroup]="listForm" (ngSubmit)="onSubmit(listForm.value)">
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+  <button class="button" type="submit">Add List</button>
+</form>
