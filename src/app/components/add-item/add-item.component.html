@@ -13,14 +13,9 @@
     <input id="description" type="text" formControlName="description">
   </div>
 
-  <div>
-    <label for="createdDate">Date Created:</label>
-    <input type="date" id="createdDate" formControlName="createdDate">
-  </div>
-
   <label>List: </label>
   <div *ngFor="let list of lists">
-    <input type="radio" [id]="list.name" formControlName="list" [value]="list.id">
+    <input type="radio" [id]="list.name" formControlName="list" [value]="list._links.self.href">
     <label [for]="list.name">{{ list.name }}</label><br>
   </div>
 

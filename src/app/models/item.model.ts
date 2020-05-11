@@ -1,6 +1,15 @@
 export interface Item {
-  id: number;
   title: string;
   description: string;
-  createdDate: Date;
+  _links: {
+    self: {
+      href: string
+    },
+    todoList: {
+      href: string
+    },
+    items: {
+      href: string
+    }
+  };
 }

@@ -1,6 +1,6 @@
-<h2>{{ list.name }} <button (click)="onDelete()">Delete</button></h2>
-<div *ngIf="list.items">
-  <div *ngFor="let item of list.items">
+<h2>{{ list.name }}</h2>
+<div *ngIf="items">
+  <div *ngFor="let item of items">
     <app-item [item]="item"></app-item>
   </div>
 </div>

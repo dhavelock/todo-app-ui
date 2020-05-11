@@ -12,13 +12,11 @@ import { AddListComponent } from './components/add-list/add-list.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
-import { ItemViewComponent } from './components/item-view/item-view.component';
 
 const routes: Route[] = [
   { path: '', component: ListViewComponent },
   { path: 'addlist', component: AddListComponent },
   { path: 'additem', component: AddItemComponent },
-  { path: 'item/:itemId', component: ItemViewComponent },
 ];
 
 @NgModule({
@@ -29,8 +27,7 @@ const routes: Route[] = [
     AddListComponent,
     AddItemComponent,
     ListViewComponent,
-    HeaderBarComponent,
-    ItemViewComponent
+    HeaderBarComponent
   ],
   imports: [
     BrowserModule,
