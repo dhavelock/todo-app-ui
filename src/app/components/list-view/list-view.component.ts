@@ -14,8 +14,6 @@ export class ListViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoApi.getLists()
-    .subscribe(res => {
-      this.lists = res['_embedded'].list;
-    });
+    .subscribe((response: List[]) => this.lists = response);
   }
 }

@@ -25,19 +25,19 @@ export class TodoApiService {
     return this.http.get(`${this.baseUrl}/item/${id}`);
   }
 
-  getUrl(url: string) {
-    return this.http.get(url);
-  }
-
-  postItem(data) {
-    return this.http.post(`${this.baseUrl}/item`, data);
+  postItem(data: any, listId: number) {
+    return this.http.post(`${this.baseUrl}/item?listId=${listId}`, data);
   }
 
   postList(data) {
     return this.http.post(`${this.baseUrl}/list`, data);
   }
 
-  deleteUrl(url: string) {
-    return this.http.delete(url);
+  deleteList(id: number) {
+    return this.http.delete(`${this.baseUrl}/list/${id}`);
+  }
+
+  deleteItem(id: number) {
+    return this.http.delete(`${this.baseUrl}/item/${id}`);
   }
 }
