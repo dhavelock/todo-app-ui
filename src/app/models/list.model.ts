@@ -1,14 +1,7 @@
+import { Item } from './item.model';
+
 export interface List {
+  id: number,
   name: string;
-  _links: {
-    self: {
-      href: string
-    },
-    todoList: {
-      href: string
-    },
-    items: {
-      href: string
-    }
-  };
+  items: Item[];
 }

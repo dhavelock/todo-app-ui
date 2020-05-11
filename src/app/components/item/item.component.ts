@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Item } from '../../models/item.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -9,5 +10,9 @@ import { Item } from '../../models/item.model';
 export class ItemComponent {
   @Input() item: Item;
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  onClick() {
+    this.router.navigate(['item', this.item.id])
+  }
 }

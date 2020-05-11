@@ -1,23 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TodoApiService } from '../../services/todo-api.service';
 import { List } from '../../models/list.model';
-import { Item } from '../../models/item.model';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   @Input() list: List;
-  items: Item[];
 
   constructor(private todoApi: TodoApiService) { }
 
-  ngOnInit() {
-    this.todoApi.getUrl(this.list._links.items.href)
-    .subscribe(res => {
-      this.items = res['_embedded'].item;
-    })
+  onDelete() {
+    this.todoApi.deleteList(this.list.id)
+    .subscribe(
+      () => window.location.reload(),
+      error => alert(error.error.message)
+    );
   }
 }

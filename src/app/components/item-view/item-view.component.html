@@ -1,0 +1,7 @@
+<div *ngIf="item">
+  <h2>{{ item.title }}</h2>
+  <p>Description: {{ item.description }}</p>
+  <p>Created On: {{ item.createdDate }}</p>
+  <p>Item ID: {{ item.id }}</p>
+  <button (click)="onDelete()">Delete</button>
+</div>

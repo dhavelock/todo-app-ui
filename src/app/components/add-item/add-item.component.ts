@@ -17,21 +17,25 @@ export class AddItemComponent implements OnInit {
     this.itemForm = this.formBuilder.group({
       title: '',
       description: '',
+      createdDate: '',
       list: ''
     });
   }
 
   ngOnInit() {
     this.todoApi.getLists()
-    .subscribe(data => {
-      this.lists = data['_embedded'].list
-    })
+    .subscribe((response: List[]) => this.lists = response);
   }
 
   onSubmit(itemData) {
-    this.todoApi.postItem(itemData)
-    .subscribe(res => {
-      this.router.navigate(['']);
-    })
+    this.todoApi.postItem({
+      createdDate: itemData.createdDate,
+      title: itemData.title,
+      description: itemData.description
+    }, itemData.list)
+    .subscribe(
+      () => this.router.navigate(['']),
+      error => alert(error.error.message)
+    );
   }
 }
